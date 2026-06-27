@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 33% 3%;
+    --foreground: 0 0% 100%;
+    --card: 240 33% 5%;
+    --card-foreground: 0 0% 100%;
+    --popover: 240 33% 5%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 178 57% 43%;
+    --primary-foreground: 240 33% 3%;
+    --secondary: 260 30% 43%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 15% 15%;
+    --muted-foreground: 240 10% 58%;
+    --accent: 330 42% 39%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 178 57% 43% / 0.2;
+    --input: 240 15% 15%;
+    --ring: 178 57% 43%;
+    --radius: 0.625rem;
+
+    /* Brand Colors */
+    --color-brand-primary: #2fadaa;
+    --color-brand-secondary: #5d4d90;
+    --color-brand-tertiary: #8e3a6e;
+    --color-brand-gold: #D4AF37;
+
+    /* UI Colors */
+    --color-bg-primary: #05050A;
+    --color-bg-secondary: #0A0A15;
+    --color-bg-card: rgba(10, 10, 21, 0.85);
+    --color-bg-glass: rgba(15, 15, 30, 0.6);
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #8A8DA8;
+    --color-text-muted: #4A4D68;
+    --color-border: rgba(47, 173, 170, 0.2);
+    --color-border-subtle: rgba(255, 255, 255, 0.06);
+
+    /* Block Colors */
+    --color-block-cyan: #2fadaa;
+    --color-block-purple: #7B5EA7;
+    --color-block-green: #4CAF50;
+    --color-block-orange: #FF9800;
+    --color-block-magenta: #8e3a6e;
+    --color-block-blue: #5C6BC0;
+
+    /* Animation */
+    --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --ease-dramatic: cubic-bezier(0.87, 0, 0.13, 1);
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: rgba(47, 173, 170, 0.3);
+    color: #FFFFFF;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .font-mono-code {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .glass-panel {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: var(--color-bg-glass);
+    border: 1px solid var(--color-border-subtle);
+  }
+
+  .glass-panel-hover {
+    transition: all 0.3s var(--ease-smooth);
+  }
+
+  .glass-panel-hover:hover {
+    border-color: var(--color-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    transform: translateY(-4px);
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, #2fadaa 0%, #5d4d90 50%, #8e3a6e 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #2fadaa 0%, #7B5EA7 50%, #8e3a6e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-teal {
+    box-shadow: 0 0 20px rgba(47, 173, 170, 0.3);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(93, 77, 144, 0.3);
+  }
+
+  .code-block {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+  }
+}
+
+@layer utilities {
+  .tracking-widest-brand {
+    letter-spacing: 0.12em;
+  }
+
+  .text-shadow-glow {
+    text-shadow: 0 0 40px rgba(47, 173, 170, 0.3);
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-muted);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
+
+/* Syntax Highlighting Colors */
+.syntax-keyword { color: #c678dd; }
+.syntax-string { color: #98c379; }
+.syntax-number { color: #d19a66; }
+.syntax-comment { color: #5c6370; font-style: italic; }
+.syntax-function { color: #61afef; }
+.syntax-type { color: #e5c07b; }
+.syntax-operator { color: #56b6c2; }
